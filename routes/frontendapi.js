@@ -87,7 +87,6 @@ frontendapi.get("/slider", async (req, res) => {
   frontendapi.get("/gallery", async (req, res) => {
     try {
       let data = await GalleryModel.find();
-      console.log(data);
       res.status(200).send(data);
     } catch (error) {
       res.status(401).send({ msg: error.message});
@@ -122,10 +121,68 @@ frontendapi.get("/slider", async (req, res) => {
     }
   });
 
-  frontendapi.delete("/deletemovie/:id", async (req, res) => {
+  frontendapi.delete("/testimonials/:id", async (req, res) => {
     try {
       const { id } = req.params;
       await TestimonialModel.findByIdAndDelete(id);
+      res.status(200).send({ msg: "Data Deleted Successfully" });
+    } catch (error) {
+      console.error("Delete error:", error);
+      res.status(500).send({ msg: error.message });
+    }
+  });
+
+  frontendapi.delete("/slide/:id", async (req, res) => {
+    try {
+      const { id } = req.params;
+      await SlideModel.findByIdAndDelete(id);
+      res.status(200).send({ msg: "Data Deleted Successfully" });
+    } catch (error) {
+      console.error("Delete error:", error);
+      res.status(500).send({ msg: error.message });
+    }
+  });
+
+
+  frontendapi.delete("/slider/:id", async (req, res) => {
+    try {
+      const { id } = req.params;
+      await sliderModel.findByIdAndDelete(id);
+      res.status(200).send({ msg: "Data Deleted Successfully" });
+    } catch (error) {
+      console.error("Delete error:", error);
+      res.status(500).send({ msg: error.message });
+    }
+  });
+
+
+  frontendapi.delete("/services/:id", async (req, res) => {
+    try {
+      const { id } = req.params;
+      await ServicesModel.findByIdAndDelete(id);
+      res.status(200).send({ msg: "Data Deleted Successfully" });
+    } catch (error) {
+      console.error("Delete error:", error);
+      res.status(500).send({ msg: error.message });
+    }
+  });
+
+  frontendapi.delete("/gallery/:id", async (req, res) => {
+    try {
+      const { id } = req.params;
+      await GalleryModel.findByIdAndDelete(id);
+      res.status(200).send({ msg: "Data Deleted Successfully" });
+    } catch (error) {
+      console.error("Delete error:", error);
+      res.status(500).send({ msg: error.message });
+    }
+  });
+
+
+  frontendapi.delete("/teams/:id", async (req, res) => {
+    try {
+      const { id } = req.params;
+      await TeamsModel.findByIdAndDelete(id);
       res.status(200).send({ msg: "Data Deleted Successfully" });
     } catch (error) {
       console.error("Delete error:", error);
