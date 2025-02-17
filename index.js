@@ -39,7 +39,7 @@ mongoose
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.error('MongoDB connection error:', err));
 
-  const url = `https://www.lifeevents.in/`;
+  const url = `https://www.eventbuzz.in/`;
 const interval = 30000;
 
 function reloadWebsite() {
